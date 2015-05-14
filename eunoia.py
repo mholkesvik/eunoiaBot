@@ -2,14 +2,14 @@
 import twitter
 import time
 import datetime
+import random
 
 api = twitter.Api(
     consumer_key='foo', 
     consumer_secret='bar', 
-    access_token_key='baz', 
-    access_token_secret='bongo'
+    access_token_key='alpha', 
+    access_token_secret='omega'
 )
-
 
 def isEunoia(text):
     vowels = "aeiou"
@@ -30,14 +30,18 @@ def isEunoia(text):
 # words in Eunoia violation
 def getBadWords():
     with open('bad.txt','r') as f:
-        return f.read().replace(' ', ' -')
+        allBadWords = f.read().split('\n')
+        selectBadWords = random.sample(set(allBadWords), 30)
+        return "-" + " -".join(selectBadWords)
 
 
 # good.txt contains some of the most common 
 # english words _not_ in Eunoia violation
 def getGoodWords():
     with open('good.txt','r') as f:
-        return f.read()
+        allGoodWords = f.read().split('\n')
+        randomGoodWords = random.sample(set(allGoodWords), 4)
+        return " ".join(randomGoodWords)
 
 
 def getTweets():
@@ -47,6 +51,7 @@ def getTweets():
 
     # Twitter API enforces that you include at least one word you want
     for goodWord in goodWords.split( ):
+        print goodWord
         results.extend(api.GetSearch(
                             term = goodWord + badWords
                             ,count=100
@@ -59,6 +64,7 @@ def getTweets():
 def parseResults(results):
     for tweet in results:
         encodedTweetText = tweet.text.encode("utf-8")
+        print encodedTweetText
         if isEunoia(encodedTweetText):
             print '---------------------'
             print encodedTweetText
