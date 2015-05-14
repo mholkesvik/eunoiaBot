@@ -5,10 +5,10 @@ import datetime
 import random
 
 api = twitter.Api(
-    consumer_key='foo', 
-    consumer_secret='bar', 
-    access_token_key='alpha', 
-    access_token_secret='omega'
+    consumer_key='TNjP4JEhmq8iqOqc4x2jrsbIj', 
+    consumer_secret='NwpPFvt7D6MWLjUSNuDctudWCwLwrGOZ2Tey4obiyTqEOgLCNq', 
+    access_token_key='2426543023-tZlsWuXsyan2BKjuvZkjExIOP4zdOZAkkE1DkId', 
+    access_token_secret='PQRR7gJqd2oIyCGAjOhRJd9keljHEayj5bpmqaHL5wMsv'
 )
 
 def isEunoia(text):
@@ -51,7 +51,6 @@ def getTweets():
 
     # Twitter API enforces that you include at least one word you want
     for goodWord in goodWords.split( ):
-        print goodWord
         results.extend(api.GetSearch(
                             term = goodWord + badWords
                             ,count=100
@@ -64,7 +63,6 @@ def getTweets():
 def parseResults(results):
     for tweet in results:
         encodedTweetText = tweet.text.encode("utf-8")
-        print encodedTweetText
         if isEunoia(encodedTweetText):
             print '---------------------'
             print encodedTweetText
