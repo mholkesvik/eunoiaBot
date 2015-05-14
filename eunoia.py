@@ -5,10 +5,10 @@ import datetime
 import random
 
 api = twitter.Api(
-    consumer_key='TNjP4JEhmq8iqOqc4x2jrsbIj', 
-    consumer_secret='NwpPFvt7D6MWLjUSNuDctudWCwLwrGOZ2Tey4obiyTqEOgLCNq', 
-    access_token_key='2426543023-tZlsWuXsyan2BKjuvZkjExIOP4zdOZAkkE1DkId', 
-    access_token_secret='PQRR7gJqd2oIyCGAjOhRJd9keljHEayj5bpmqaHL5wMsv'
+    consumer_key='bongo', 
+    consumer_secret='bongo', 
+    access_token_key='bongo', 
+    access_token_secret='bongo'
 )
 
 def isEunoia(text):
