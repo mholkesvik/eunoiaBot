@@ -3,12 +3,13 @@ import twitter
 import time
 import datetime
 import random
+import twitterApiKeys
 
 api = twitter.Api(
-    consumer_key='bongo', 
-    consumer_secret='bongo', 
-    access_token_key='bongo', 
-    access_token_secret='bongo'
+    consumer_key = twitterApiKeys.KEYS['consumer_key'], 
+    consumer_secret = twitterApiKeys.KEYS['consumer_secret'], 
+    access_token_key = twitterApiKeys.KEYS['access_token_key'], 
+    access_token_secret = twitterApiKeys.KEYS['access_token_secret']
 )
 
 def isEunoia(text):
